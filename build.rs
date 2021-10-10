@@ -1,5 +1,3 @@
-extern crate bindgen;
-
 use std::env;
 use std::process::Command;
 use std::path::PathBuf;
@@ -10,7 +8,7 @@ fn main() {
   Command::new("cp")
     .args(&["-r", "./c_libs/libpg_query", &out_path.display().to_string()])
     .output()
-    .expect(&format!("Failed to copy libpg_query to OUT_DIR {}", out_path.join("libpg_query").display()));
+    .unwrap_or_else(|e| panic!("Failed to copy libpg_query to OUT_DIR {}: {:?}", out_path.join("libpg_query").display(), e));
 
   Command::new("make")
     .current_dir(format!("{}/libpg_query", out_path.display()))
@@ -19,5 +17,5 @@ fn main() {
 
   println!("cargo:rerun-if-changed=c_libs/libpg_query");
   println!("cargo:rustc-link-search=native={}", out_path.join("libpg_query").display());
-  println!("cargo:rustc-link-lib=static={}", "pg_query");
+  println!("cargo:rustc-link-lib=static=pg_query");
 }
