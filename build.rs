@@ -6,7 +6,7 @@ fn main() {
   let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
 
   Command::new("cp")
-    .args(&["-r", "./c_libs/libpg_query", &out_path.display().to_string()])
+    .args(["-r", "./c_libs/libpg_query", &out_path.display().to_string()])
     .output()
     .unwrap_or_else(|e| panic!("Failed to copy libpg_query to OUT_DIR {}: {:?}", out_path.join("libpg_query").display(), e));
 
