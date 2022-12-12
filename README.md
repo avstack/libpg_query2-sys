@@ -1,2 +1,2 @@
-# libpg_query-sys
-FFI bindings to libpg_query-10-1.0.2
+# libpg_query2-sys
+FFI bindings to libpg_query-13-2.2.0
