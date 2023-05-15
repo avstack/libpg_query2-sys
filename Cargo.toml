@@ -1,9 +1,9 @@
 [package]
 name = "libpg_query2-sys"
 links = "pg_query"
-description = "FFI bindings to libpg_query-13-2.2.0"
-version = "0.2.3"
-authors = ["Timothy Bess <tdbgamer@gmail.com>"]
+description = "FFI bindings to libpg_query"
+version = "0.3.0"
+authors = ["Jasper Hugo <jasper@avstack.io>"]
 build = "build.rs"
 edition = "2018"
 license = "BSD-3-Clause"
